@@ -1,0 +1,101 @@
+{% extends 'navbar.html' %} {% block content %}
+<div class="container mt-5">
+  <h2 class="text-center font-weight-bold mb-4" style="color: #3498db">
+    Tickets de cinéma disponibles
+  </h2>
+
+  {% if tickets %}
+  <div class="row">
+    {% for ticket in tickets %}
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm border-light rounded">
+        <img
+          src="{{ ticket.image_url }}"
+          class="card-img-top"
+          alt="Image du film"
+          style="
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+          "
+        />
+        <div class="card-body">
+          <h5 class="card-title text-dark" style="font-weight: bold">
+            {{ ticket.title }}
+          </h5>
+          <p
+            class="card-text text-muted"
+            style="font-size: 1rem; line-height: 1.5"
+          >
+            {{ ticket.description }}
+          </p>
+          <p class="text-success" style="font-size: 1.1rem; font-weight: bold">
+            Prix : {{ ticket.price }} €
+          </p>
+
+          <!-- Check if ticket quantity is available -->
+          {% if ticket.available == true %}
+          <!-- Quantity selection form -->
+          <form
+            action="{{ url_for('buy_ticket', ticket_id=ticket['_id']) }}"
+            method="post"
+          >
+            <div class="form-row align-items-center">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Tickets</span>
+                  </div>
+                  <input
+                    type="number"
+                    id="quantity_{{ ticket['_id'] }}"
+                    name="quantity"
+                    min="1"
+                    max="10"
+                    value="1"
+                    class="form-control"
+                    style="max-width: 80px; text-align: center"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <button
+                type="submit"
+                class="btn btn-warning text-white"
+                style="font-weight: bold; width: 100px"
+              >
+                Acheter
+              </button>
+            </div>
+          </form>
+          {% else %}
+          <!-- If no tickets are available, show a disabled button -->
+          <br /><br />
+          <div class="text-center mt-3">
+            <button
+              type="button"
+              class="btn btn-secondary text-white"
+              style="font-weight: bold; cursor: not-allowed"
+              disabled
+            >
+              Solde Out
+            </button>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p
+    class="text-center text-danger"
+    style="font-size: 1.2rem; font-weight: bold"
+  >
+    Aucun ticket disponible pour le moment.
+  </p>
+  {% endif %}
+</div>
+{% endblock %}

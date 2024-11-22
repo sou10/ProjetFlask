@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %} {% block content %}
+<div class="container mt-5">
+  <h2 class="text-center font-weight-bold mb-4" style="color: #3498db">
+    Confirmation de votre achat
+  </h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm border-light rounded">
+        <div class="card-body">
+          <h5 class="card-title text-dark" style="font-weight: bold">
+            Vous avez acheté {{ quantity }} ticket(s) pour le film "{{
+            ticket.title }}"
+          </h5>
+          <p
+            class="card-text text-muted"
+            style="font-size: 1rem; line-height: 1.5"
+          >
+            {{ ticket.description }}
+          </p>
+          <p class="text-success" style="font-size: 1.1rem; font-weight: bold">
+            Prix unitaire : {{ ticket.price }} €
+          </p>
+          <p class="text-success" style="font-size: 1.1rem; font-weight: bold">
+            Total : {{ total_price }} €
+          </p>
+
+          <div class="text-center">
+            <a
+              href="{{ url_for('index') }}"
+              class="btn btn-primary"
+              style="font-weight: bold"
+            >
+              Retour à l'accueil
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

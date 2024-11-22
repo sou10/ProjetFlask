@@ -1,0 +1,55 @@
+/* Rendre la première image circulaire */
+.first-img {
+    border-radius: 50%;
+    width: 250px;  /* Fixe la taille de l'image circulaire */
+    height: 250px;
+    object-fit: cover;  /* S'assure que l'image garde sa proportion tout en remplissant le cercle */
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre */
+  }
+  
+  /* Rendre les images des cartes de même taille */
+  .card-img-equal {
+    height: 200px;
+    object-fit: cover;  /* Force l'image à remplir l'espace sans déformation */
+  }
+  
+  /* Autres améliorations CSS */
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    padding: 25px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+  
+  .card-img-top {
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s;
+  }
+  
+  .card-img-top:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Effet de survol pour les cartes */
+  .hover-effect:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
+  }
+  

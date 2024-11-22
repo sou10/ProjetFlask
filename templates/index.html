@@ -1,0 +1,84 @@
+{% extends 'navbar.html' %} {% block content %}
+<!-- Section d'accueil -->
+
+<!-- Section supplémentaire pour renforcer l'impact visuel -->
+<div class="container mt-5 text-center">
+  <h2 class="font-weight-bold mb-4" style="color: #3498db">
+    Bienvenue sur notre site de vente de tickets de cinéma !
+  </h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div
+        class="card shadow-sm mb-4 hover-effect"
+        style="background-color: #f0f8ff"
+      >
+        <!-- Light blue background for cards -->
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPjIQDWJbBe_dPPu68IKSmDgU7DJgH0H-uoA&s"
+          class="card-img-top card-img-equal"
+          alt="Large sélection de films"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-danger">
+            <!-- Changed card title color to red -->
+            Large sélection de films
+          </h5>
+          <p class="card-text">
+            Accédez à une variété de films populaires, récents et classiques.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div
+        class="card shadow-sm mb-4 hover-effect"
+        style="background-color: #f8f8f8"
+      >
+        <!-- Light grey background -->
+        <img
+          src="https://i.ytimg.com/vi/MLJd4cGUGQU/maxresdefault.jpg"
+          class="card-img-top card-img-equal"
+          alt="Paiement sécurisé"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-primary">
+            <!-- Changed card title color to blue -->
+            Paiement sécurisé
+          </h5>
+          <p class="card-text">
+            Procédez à vos achats en toute sécurité avec nos options de paiement
+            fiables.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div
+        class="card shadow-sm mb-4 hover-effect"
+        style="background-color: #ffebcd"
+      >
+        <!-- Light beige background -->
+        <img
+          src="https://img.freepik.com/premium-vector/cinema-ticket-template-ticket-design-template-vector_174639-61304.jpg"
+          class="card-img-top card-img-equal"
+          alt="Réservation facile"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-info">
+            <!-- Changed card title color to teal -->
+            Réservation facile
+          </h5>
+          <p class="card-text">
+            Réservez vos places en quelques clics et profitez d'une expérience
+            sans stress.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

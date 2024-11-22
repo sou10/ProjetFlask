@@ -1,0 +1,78 @@
+{% extends 'navbar.html' %} {% block content %}
+<div class="container mt-5">
+  <h2 class="text-center font-weight-bold mb-4" style="color: #3498db">
+    Acheter des Tickets
+  </h2>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow-sm border-light rounded">
+        <img
+          src="{{ ticket.image_url }}"
+          class="card-img-top"
+          alt="Image du film"
+          style="
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+          "
+        />
+        <div class="card-body">
+          <h5 class="card-title text-dark" style="font-weight: bold">
+            {{ ticket.title }}
+          </h5>
+          <p
+            class="card-text text-muted"
+            style="font-size: 1rem; line-height: 1.5"
+          >
+            {{ ticket.description }}
+          </p>
+          <p class="text-success" style="font-size: 1.1rem; font-weight: bold">
+            Prix : {{ ticket.price }} € par ticket
+          </p>
+
+          <!-- Quantity selection form -->
+          <form
+            action="{{ url_for('process_purchase', ticket_id=ticket['_id']) }}"
+            method="post"
+          >
+            <div class="form-group">
+              <label for="quantity_{{ ticket['_id'] }}"
+                >Nombre de tickets :</label
+              >
+              <input
+                type="number"
+                id="quantity_{{ ticket['_id'] }}"
+                name="quantity"
+                min="1"
+                max="10"
+                value="1"
+                class="form-control"
+                style="width: 80px; display: inline-block"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-warning text-white"
+              style="font-weight: bold"
+            >
+              Confirmer l'achat
+            </button>
+          </form>
+
+          <hr />
+
+          <h4 class="text-center" style="color: #3498db">
+            Résumé de la commande
+          </h4>
+          <p><strong>Titre : </strong>{{ ticket.title }}</p>
+          <p><strong>Prix unitaire : </strong>{{ ticket.price }} €</p>
+          <p><strong>Quantité sélectionnée : </strong>{{ quantity or 1 }}</p>
+          <p><strong>Total : </strong>{{ ticket.price * (quantity or 1) }} €</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
